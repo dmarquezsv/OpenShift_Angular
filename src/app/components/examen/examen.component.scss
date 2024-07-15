@@ -1,0 +1,29 @@
+.example-container {
+    width: 500px;
+  }
+  
+  .example-list {
+    border: 1px solid #ccc;
+    min-height: 40px;
+    width: 100px;
+    background: #f7f7f7;
+    border-radius: 4px;
+    display: block;
+    padding: 10px;
+    overflow: hidden;
+  }
+  
+  .example-box {
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    background-color: white;
+    border-radius: 4px;
+    cursor: move;
+  }
+  
+  span {
+    display: inline-block;
+    margin: 5px 0;
+  }
+  

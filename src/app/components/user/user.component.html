@@ -1,0 +1,30 @@
+<h1> API REST Spring Boot v3.2.5 - Angular v17 - PrimeNG </h1>
+<!-- src/app/report/report.component.html -->
+<p-button label="Descargar PDF Usuarios" severity="secondary" (click)="downloadUserReport()"></p-button>
+
+<p-table [value]="userList" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Actions</th> <!-- Nueva columna para acciones -->
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+      <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.date }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.password }}</td>
+        <td>
+          <p-button (click)="deleteUser(user.id)" label="Delete" severity="danger" />
+        
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  
