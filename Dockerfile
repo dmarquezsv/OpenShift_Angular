@@ -21,5 +21,5 @@ FROM nginx:latest
 COPY --from=build /app/dist /usr/share/nginx/html
 
 # Configurar Nginx
-EXPOSE 4200
+EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
