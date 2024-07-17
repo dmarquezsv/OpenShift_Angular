@@ -15,12 +15,12 @@ License: "MIT"
 
 
 --------------------------------------------------------------------------------
-Package: primeng
+Package: @angular/forms
 License: "MIT"
 
 
 --------------------------------------------------------------------------------
-Package: @angular/forms
+Package: primeng
 License: "MIT"
 
 
