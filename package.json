@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration=production",
     "build:prod": "ng build --configuration production",
     "test": "ng test",
     "serve:ssr:frontend-AngularV17": "node dist/frontend-angular-v17/server/server.mjs"

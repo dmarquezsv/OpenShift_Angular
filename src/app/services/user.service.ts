@@ -10,7 +10,7 @@ import { UserInterface } from '../interfaces/user.interfaces'; // Importa la int
 })
 export class UserService {
   // Define la URL base de la API para los usuarios
-  API_URL: string = 'https://springboot-git-postgres-demo.apps-crc.testing/api/v1/users';
+  API_URL: string = 'http://localhost:8080/api/v1/users';
 
   // Inyecta HttpClient en el constructor para poder usarlo en los métodos del servicio
   constructor(private httpClient: HttpClient) {}

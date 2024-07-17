@@ -1,29 +1,12 @@
-# Etapa de compilación
-FROM node:20-alpine as build
-
-# Establecer directorio de trabajo
+FROM node:21 as builder
 WORKDIR /app
-
-# Copiar el archivo package.json y package-lock.json
-COPY package*.json ./
-
-# Instalar dependencias
-RUN npm install
-
-# Copiar el código fuente
 COPY . .
+RUN npm install
+RUN npm run build
 
-# Construir la aplicación Angular en modo producción
-RUN npm run build -- --configuration production
-
-# Etapa de producción
 FROM nginx:alpine
-
-# Copiar los archivos compilados desde la etapa de compilación
-COPY --from=build /app/dist /usr/share/nginx/html
-
-# Exponer el puerto 80 para Nginx
+COPY --from=builder /app/dist/frontend-angular-v17/browser /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY mime.types /etc/nginx/mime.types
 EXPOSE 80
-
-# Comando para iniciar Nginx
 CMD ["nginx", "-g", "daemon off;"]
