@@ -5,7 +5,6 @@ types {
     application/json           json;
     image/gif                  gif;
     image/jpeg                 jpeg jpg;
-    application/xml            xml;
     text/xml                   xml;
     image/png                  png;
 }
