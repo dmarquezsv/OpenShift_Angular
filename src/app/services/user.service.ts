@@ -8,6 +8,7 @@ import { UserInterface } from '../interfaces/user.interfaces'; // Importa la int
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
   // Define la URL base de la API para los usuarios
   API_URL: string = 'https://springboot-git-postgres-demo.apps-crc.testing/api/v1/users';
