@@ -2,23 +2,23 @@
 FROM node:21 as builder
 
 # Set the working directory to /project
-WORKDIR /project
-
-# Copy package files in container currunt direcctory
-COPY --chown=1001:1001 package.json package-lock.json ./
-
-
-# Install all Angular dependacies
-RUN npm ci
+WORKDIR /app
 
 # Add application files in container 
 COPY . .
+RUN npm install
+RUN npm run build --prod
 
-# Set permision of .angular file in container
-VOLUME ["/project/.angular"]
+FROM bitnami/nginx as ngi
 
-# Open port to allow traffic in container
+# Copy the Nginx configuration file
+COPY nginx.conf /opt/bitnami/nginx/conf/nginx.conf
+
+# Copy the built Angular application from the builder stage
+COPY --from=builder /app/dist/frontend-angular-v17/ /usr/share/nginx/html
+
+# Expose the port that Nginx will run on
 EXPOSE 8081
 
-# Run start script using npm command
-CMD ["npm", "start"]
+# Run Nginx in the foreground
+CMD ["nginx", "-g", "daemon off;"]
